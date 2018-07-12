@@ -1,0 +1,19 @@
+{
+  "name": "holiday_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "booking.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node repl.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
