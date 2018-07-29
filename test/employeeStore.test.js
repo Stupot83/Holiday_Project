@@ -3,13 +3,13 @@ const mocha = require('mocha');
 const chai = require('chai');
 const expect = chai.expect;
 
-var Employee = require('../models/employee.js')
-var Booking = require('../models/booking.js')
-var EmployeeStore = require('../models/EmployeeStore')
+var Employee = require('../models/employee.js');
+var Booking = require('../models/booking.js');
+var EmployeeStore = require('../models/EmployeeStore');
 
-var EmployeeStore = new EmployeeStore
-var employee1 = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
-var employee2 = new Employee("E124", "jon harris", "jon@harris.com", 25)
+var EmployeeStore = new EmployeeStore;
+var employee1 = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25);
+var employee2 = new Employee("E124", "jon harris", "jon@harris.com", 25);
 
 // Testing of the EmployeeStore class
 
@@ -22,24 +22,25 @@ describe("Testing EmployeeStore Class" + '\n', function() {
             expect(EmployeeStore.employees).to.eql([]);
         });
         it("should have the properties as described", function() {
-            expect(EmployeeStore).to.have.all.keys("employees")
+            expect(EmployeeStore).to.have.all.keys("employees");
         });
         it("booking Array should have the correct data type" + '\n', function() {
-            expect(typeof EmployeeStore.employees).to.eql(typeof (new Array))
+            expect(typeof EmployeeStore.employees).to.eql(typeof (new Array));
         });
     })
 
     describe("Adding an employee to the EmployeeStore", function() {
         it("add an employee to the EmployeeStore" + '\n', function () {
             EmployeeStore.add(employee1);
-            expect(EmployeeStore.employees).to.eql([{"bookingsList": [],"holidayApproved": 0,"holidayBooked": 0,"email": "joe@bloggs.com","holidayAllowance": 25,"name": "Joe Bloggs","payrollNo": "E123"}])
+            expect(EmployeeStore.employees).to.eql([{"bookingsList": [],"holidayApproved": 0,
+            "holidayBooked": 0,"email": "joe@bloggs.com","holidayAllowance": 25,"name": "Joe Bloggs","payrollNo": "E123"}]);
         });
     })
 
     describe("Removing an employee to the EmployeeStore", function() {
         it("add an employee to the EmployeeStore" + '\n', function () {
             EmployeeStore.remove(employee1);
-            expect(EmployeeStore.employees).to.eql([])
+            expect(EmployeeStore.employees).to.eql([]);
         });
     })
 

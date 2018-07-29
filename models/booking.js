@@ -13,7 +13,7 @@ class Booking {
     authorize(manager, specialDate) {
         var date = new Date().toLocaleDateString()
         if(typeof specialDate !== "undefined") {
-            date = specialDate
+            date = specialDate;
         }
         this.approved = true;
         this.approver = manager;
@@ -37,12 +37,12 @@ class Booking {
 
     // Function to calculate number of days a booking is for
     numberOfDays() {
-        return Math.round(Math.abs(this.endDate - this.startDate) / 8.64e7 + 1)
+        return Math.round(Math.abs(this.endDate - this.startDate) / 8.64e7 + 1);
     } 
 
     // Function to return in JSON format
     toJSON() {
-        return (this)
+        return (this);
     }
 
 }

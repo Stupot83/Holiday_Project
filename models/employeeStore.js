@@ -9,23 +9,23 @@ var fs = require('fs');
 
 class EmployeeStore {
     constructor() {
-        this.employees = [];
+        this.employees = []
     }
 
     // Function to add an employee to the EmployeeStore
     add(employee) {
-        this.employees.push(employee)
+        this.employees.push(employee);
     }
 
     // Function to remove the employee from the EmployeeStore
     remove(employee) {
-        this.employees.pop(employee)
+        this.employees.pop(employee);
     }
     
     // Function to save employees from EmployeeStore into employeeStore.json file
     save() {
 
-        var employeeList = this.employees
+        var employeeList = this.employees;
 
         fs.writeFile("./employeeStore.json", JSON.stringify(employeeList, null, 4), (err) => {
         if (err) {
@@ -49,7 +49,7 @@ class EmployeeStore {
 
     // Function to return in JSON format
     toJSON() {
-        return (this)
+        return (this);
     }
 
 }

@@ -3,9 +3,9 @@ const mocha = require('mocha');
 const chai = require('chai');
 const expect = chai.expect;
 
-var Booking = require('../models/booking.js')
+var Booking = require('../models/booking.js');
 
-var booking = new Booking(new Date("2018-09-01"), new Date("2018-09-05"))
+var booking = new Booking(new Date("2018-09-01"), new Date("2018-09-05"));
 
 // Testing of the Booking Class
 
@@ -18,7 +18,7 @@ describe("Testing Booking class" + '\n', function() {
             expect(booking.endDate).to.eql(new Date("2018-09-05"));
         });
         it("Should have the properties of a booking" + '\n', function() {
-            expect(booking).to.have.all.keys('startDate','endDate','approved','approvedOnDate','approver')
+            expect(booking).to.have.all.keys('startDate','endDate','approved','approvedOnDate','approver');
         })
     })
 

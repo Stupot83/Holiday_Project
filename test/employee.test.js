@@ -3,10 +3,10 @@ const mocha = require('mocha');
 const chai = require('chai');
 const expect = chai.expect;
 
-var Employee = require('../models/employee.js')
-var Booking = require('../models/booking.js')
+var Employee = require('../models/employee.js');
+var Booking = require('../models/booking.js');
 
-var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
+var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25);
 
 // Testing of the Employee Class
 
@@ -29,7 +29,7 @@ describe("Testing Employee Class" + '\n', function() {
         });
         it("should expect Employee to have all above properties" + '\n', function() {
             expect(employee).to.have.all.keys('payrollNo','name','email',
-            'holidayAllowance','bookingsList','holidayApproved','holidayBooked')
+            'holidayAllowance','bookingsList','holidayApproved','holidayBooked');
         });
     })
 
@@ -59,8 +59,8 @@ describe("Testing Employee Class" + '\n', function() {
 
     describe("Making a Booking", function() {
         it("should update days remaining", function() { 
-            employee.makeBooking("2018-09-01","2018-09-05")
-            employee.makeBooking("2018-01-01","2018-01-05")
+            employee.makeBooking("2018-09-01","2018-09-05");
+            employee.makeBooking("2018-01-01","2018-01-05");
             expect(employee.daysRemaining()).to.eql(15);
          });
         it("should update days booked", function() { 
@@ -91,13 +91,13 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.bookingsList[1].approvedOnDate).to.eql(null);
         });
         it("should expect bookingsList to have one property" + '\n', function() {
-            expect(employee.bookingsList).to.have.all.keys('0', '1')
+            expect(employee.bookingsList).to.have.all.keys('0', '1');
         });
     })
 
     describe("Authorization of an Employees Booking", function() {
         it("first booking from Employee Booking array can be authorized by a manager", function() {
-            employee.bookingsList[0].authorize("Mr Boss Man")
+            employee.bookingsList[0].authorize("Mr Boss Man");
             expect(employee.bookingsList[0].isAuthorized()).to.eql(true);
         });
         it("first booking from Employee Booking array will show name of authorizer", function() {
@@ -110,7 +110,7 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.daysBookedAndAuthorized()).to.eql(5);
         });
         it("second booking from Employee Booking array can be authorized by a manager", function() {
-            employee.bookingsList[1].authorize("Mr John Smith")
+            employee.bookingsList[1].authorize("Mr John Smith");
             expect(employee.bookingsList[1].isAuthorized()).to.eql(true);
         });
         it("second booking from Employee Booking array will show name of authorizer", function() {
@@ -123,19 +123,19 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.daysBookedAndAuthorized()).to.eql(10);
         });
         it("should expect bookingsList to have one property" + '\n', function() {
-        expect(employee.bookingsList).to.have.all.keys('0', '1')
+        expect(employee.bookingsList).to.have.all.keys('0', '1');
         });
     })
     
     describe("Data Types for Bookings", function() {
         it("booking Array should have the correct data type", function() {
-            expect(typeof employee.bookingsList).to.eql(typeof (new Booking))
+            expect(typeof employee.bookingsList).to.eql(typeof (new Booking));
         });
         it("booking Array should have the correct data type", function() {
-            expect(typeof employee.pastBookings()).to.eql(typeof (new Booking))
+            expect(typeof employee.pastBookings()).to.eql(typeof (new Booking));
         });
         it("booking Array should have the correct data type" + '\n', function() {
-            expect(typeof employee.futureBookings()).to.eql(typeof (new Booking))
+            expect(typeof employee.futureBookings()).to.eql(typeof (new Booking));
         });
     })
     
@@ -144,13 +144,13 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.pastBookings(true)[0].isAuthorized()).to.eql(true);
         });
         it("Should show 5 days booked in past bookings array", function () {
-            expect(employee.pastBookings()[0].numberOfDays()).to.eql(5)
+            expect(employee.pastBookings()[0].numberOfDays()).to.eql(5);
         });
         it("Should have one booking in the array", function() {
-            expect(employee.pastBookings().length).to.eql(1)
+            expect(employee.pastBookings().length).to.eql(1);
         });
         it("should expect past bookings to have one property" + '\n', function() {
-            expect(employee.pastBookings()).to.have.all.keys('0')
+            expect(employee.pastBookings()).to.have.all.keys('0');
         });
     })
 
@@ -159,25 +159,25 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.futureBookings(true)[0].isAuthorized()).to.eql(true);
         });
         it("Should show 5 days booked in future bookings array", function () {
-            expect(employee.futureBookings()[0].numberOfDays()).to.eql(5)
+            expect(employee.futureBookings()[0].numberOfDays()).to.eql(5);
         });
         it("Should have one booking in the array", function() {
-            expect(employee.futureBookings().length).to.eql(1)
+            expect(employee.futureBookings().length).to.eql(1);
         });
         it("should expect past bookings to have one property" + '\n', function() {
-            expect(employee.pastBookings()).to.have.all.keys('0')
+            expect(employee.pastBookings()).to.have.all.keys('0');
         });
     });
     
     describe("Test throw error when trying to manipulate a booking", function() {
         it("Should throw an error when manipulating bookings" + '\n', function() {
-            expect(function() { employee.bookings = "nonsense"; }).to.throw("Exception: You cannot manipulate bookings")
+            expect(function() { employee.bookings = "nonsense"; }).to.throw("Exception: You cannot manipulate bookings");
         });
         })
 
     describe("Test throw error when trying to manipulate a booking", function() {
         it("Should throw an error when manipulating bookings" + '\n', function() {
-            expect(function() { employee.makeBooking("2018-10-01","2018-10-30") }).to.throw("Holiday allowance exceeded please try again")
+            expect(function() { employee.makeBooking("2018-10-01","2018-10-30") }).to.throw("Holiday allowance exceeded please try again");
         });
     })
 })
