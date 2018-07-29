@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Joe Bloggs",
+        "email": "joe@bloggs.com",
+        "payrollNo": "E123",
+        "holidayAllowance": 25,
+        "daysBookedOff": 0,
+        "daysAuthorized": 0,
+        "_bookings": []
+    },
+    {
+        "name": "Jon Harris",
+        "email": "jon@harris.com",
+        "payrollNo": "E124",
+        "holidayAllowance": 25,
+        "daysBookedOff": 0,
+        "daysAuthorized": 0,
+        "_bookings": []
+    }
+]

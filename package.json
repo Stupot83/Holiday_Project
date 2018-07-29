@@ -1,7 +1,7 @@
 {
   "name": "holiday_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Employee holiday booking system",
   "main": "booking.js",
   "directories": {
     "test": "test"
@@ -10,7 +10,7 @@
     "test": "mocha",
     "start": "node repl.js"
   },
-  "author": "",
+  "author": "Stuart Priestley",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
