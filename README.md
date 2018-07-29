@@ -15,7 +15,7 @@ npm install
 npm init
 npm install mocha chai
 
-You will also need to have the use of a Terminal, I used iTerm for example on my MacBook Pro, and you may want to have an editor such as VS Code.
+You will also need to have the use of a Terminal, I used iTerm for example on my MacBook Pro, and you may want to have an editor such as VS Code. You can clone the repo from Github my user name is Stupot83.
 
 To start using the system, enter the terminal and make sure you are in the directory where the files are situated, and type:
 

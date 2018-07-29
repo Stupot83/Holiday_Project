@@ -15,7 +15,7 @@ class Employee {
     }
 
      // Function to create a booking
-     makeBooking(startDate,endDate) { 
+     makeBooking(startDate,endDate) {
         var booking = new Booking(startDate,endDate)
         this.holidayBooked += booking.numberOfDays()
         this.holidayAllowance -= booking.numberOfDays()
@@ -52,13 +52,13 @@ class Employee {
         return this.holidayApproved
     }
 
-    // Function to return any bookings for future dates
+    // Function to return any bookings for future dates by filtering bookingsList
     futureBookings() {
         return this.bookingsList.filter(booking => ((booking.isAuthorized() == true) 
         && (booking.startDate > new Date())))
     }
 
-    // Function to return any bookings from dates that have passed already
+    // Function to return any bookings from dates that have passed already by filtering bookingsList
     pastBookings() {
         return this.bookingsList.filter(booking => ((booking.isAuthorized() == true) 
         && (booking.startDate < new Date())))
