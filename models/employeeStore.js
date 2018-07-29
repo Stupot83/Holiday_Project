@@ -47,7 +47,7 @@ class EmployeeStore {
         });
     }
 
-    // Function to return EmployeeStore in JSON format
+    // Function to return in JSON format
     toJSON() {
         return (this)
     }

@@ -32,7 +32,7 @@ describe("Testing EmployeeStore Class" + '\n', function() {
     describe("Adding an employee to the EmployeeStore", function() {
         it("add an employee to the EmployeeStore" + '\n', function () {
             EmployeeStore.add(employee1);
-            expect(EmployeeStore.employees).to.eql([{"_bookings": [],"daysAuthorized": 0,"daysBookedOff": 0,"email": "joe@bloggs.com","holidayAllowance": 25,"name": "Joe Bloggs","payrollNo": "E123"}])
+            expect(EmployeeStore.employees).to.eql([{"bookingsList": [],"holidayApproved": 0,"holidayBooked": 0,"email": "joe@bloggs.com","holidayAllowance": 25,"name": "Joe Bloggs","payrollNo": "E123"}])
         });
     })
 

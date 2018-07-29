@@ -40,7 +40,7 @@ class Booking {
         return Math.round(Math.abs(this.endDate - this.startDate) / 8.64e7 + 1)
     } 
 
-    // Function to return booking in JSON format
+    // Function to return in JSON format
     toJSON() {
         return (this)
     }

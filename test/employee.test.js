@@ -22,14 +22,14 @@ describe("Testing Employee Class" + '\n', function() {
             expect(employee.email).to.eql("joe@bloggs.com");
         });
         it("should create empty Employee bookings array", function() {
-            expect(employee._bookings).to.eql([]);
+            expect(employee.bookingsList).to.eql([]);
         })
         it("should create Employee holiday allowance", function(){
             expect(employee.holidayAllowance).to.eql(25);
         });
         it("should expect Employee to have all above properties" + '\n', function() {
             expect(employee).to.have.all.keys('payrollNo','name','email',
-            'holidayAllowance','_bookings','daysAuthorized','daysBookedOff')
+            'holidayAllowance','bookingsList','holidayApproved','holidayBooked')
         });
     })
 
@@ -69,67 +69,67 @@ describe("Testing Employee Class" + '\n', function() {
         it("shouldn't update days booked and Authorized", function() { 
             expect(employee.daysBookedAndAuthorized()).to.eql(0);
         });
-        it("should increase length of _bookings array", function() { 
-            expect(employee._bookings.length).to.eql(2);
+        it("should increase length of bookingsList array", function() { 
+            expect(employee.bookingsList.length).to.eql(2);
         });
         it("first booking should not be authorized", function() {
-            expect(employee._bookings[0].isAuthorized()).to.eql(false);
+            expect(employee.bookingsList[0].isAuthorized()).to.eql(false);
         });
         it("second booking should not be authorized", function() {
-            expect(employee._bookings[1].isAuthorized()).to.eql(false);
+            expect(employee.bookingsList[1].isAuthorized()).to.eql(false);
         });
         it("should show first booking has no authorizer", function() {
-            expect(employee._bookings[0].approver).to.eql(null);
+            expect(employee.bookingsList[0].approver).to.eql(null);
         });
         it("should show second booking has no authorizer", function() {
-            expect(employee._bookings[1].approver).to.eql(null);
+            expect(employee.bookingsList[1].approver).to.eql(null);
         });
         it("should show first booking has no authorized date", function() {
-            expect(employee._bookings[0].approvedOnDate).to.eql(null);
+            expect(employee.bookingsList[0].approvedOnDate).to.eql(null);
         });
         it("should show second booking has no authorized date", function() {
-            expect(employee._bookings[1].approvedOnDate).to.eql(null);
+            expect(employee.bookingsList[1].approvedOnDate).to.eql(null);
         });
-        it("should expect _bookings to have one property" + '\n', function() {
-            expect(employee._bookings).to.have.all.keys('0', '1')
+        it("should expect bookingsList to have one property" + '\n', function() {
+            expect(employee.bookingsList).to.have.all.keys('0', '1')
         });
     })
 
     describe("Authorization of an Employees Booking", function() {
         it("first booking from Employee Booking array can be authorized by a manager", function() {
-            employee._bookings[0].authorize("Mr Boss Man")
-            expect(employee._bookings[0].isAuthorized()).to.eql(true);
+            employee.bookingsList[0].authorize("Mr Boss Man")
+            expect(employee.bookingsList[0].isAuthorized()).to.eql(true);
         });
         it("first booking from Employee Booking array will show name of authorizer", function() {
-            expect(employee._bookings[0].approver).to.eql("Mr Boss Man");
+            expect(employee.bookingsList[0].approver).to.eql("Mr Boss Man");
         });
         it("first booking from Employee Booking array will show date of authorization", function() {
-            expect(employee._bookings[0].approvedOnDate).to.eql(new Date().toLocaleDateString());
+            expect(employee.bookingsList[0].approvedOnDate).to.eql(new Date().toLocaleDateString());
         });
         it("should update number of days Authorized for Employee", function() {
             expect(employee.daysBookedAndAuthorized()).to.eql(5);
         });
         it("second booking from Employee Booking array can be authorized by a manager", function() {
-            employee._bookings[1].authorize("Mr John Smith")
-            expect(employee._bookings[1].isAuthorized()).to.eql(true);
+            employee.bookingsList[1].authorize("Mr John Smith")
+            expect(employee.bookingsList[1].isAuthorized()).to.eql(true);
         });
         it("second booking from Employee Booking array will show name of authorizer", function() {
-            expect(employee._bookings[1].approver).to.eql("Mr John Smith");
+            expect(employee.bookingsList[1].approver).to.eql("Mr John Smith");
         });
         it("second booking from Employee Booking array will show date of authorization", function() {
-            expect(employee._bookings[1].approvedOnDate).to.eql(new Date().toLocaleDateString());
+            expect(employee.bookingsList[1].approvedOnDate).to.eql(new Date().toLocaleDateString());
         });
         it("should update number of days Authorized for Employee", function() {
             expect(employee.daysBookedAndAuthorized()).to.eql(10);
         });
-        it("should expect _bookings to have one property" + '\n', function() {
-        expect(employee._bookings).to.have.all.keys('0', '1')
+        it("should expect bookingsList to have one property" + '\n', function() {
+        expect(employee.bookingsList).to.have.all.keys('0', '1')
         });
     })
     
     describe("Data Types for Bookings", function() {
         it("booking Array should have the correct data type", function() {
-            expect(typeof employee._bookings).to.eql(typeof (new Booking))
+            expect(typeof employee.bookingsList).to.eql(typeof (new Booking))
         });
         it("booking Array should have the correct data type", function() {
             expect(typeof employee.pastBookings()).to.eql(typeof (new Booking))

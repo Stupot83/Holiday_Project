@@ -9,31 +9,31 @@ class Employee {
         this.email = email
         this.payrollNo = payrollNo
         this.holidayAllowance = holidayAllowance
-        this.daysBookedOff = 0
-        this.daysAuthorized = 0
-        this._bookings = []
+        this.holidayBooked = 0
+        this.holidayApproved = 0
+        this.bookingsList = []
     }
 
      // Function to create a booking
      makeBooking(startDate,endDate) { 
         var booking = new Booking(startDate,endDate)
-        this.daysBookedOff += booking.numberOfDays()
+        this.holidayBooked += booking.numberOfDays()
         this.holidayAllowance -= booking.numberOfDays()
-        this._bookings.push(booking)
+        this.bookingsList.push(booking)
 
         // If booking exceeds holiday allowance, refuse, wipe booking and
         // add allowance back on
         if (this.holidayAllowance <= 0) {
-        this.daysBookedOff -= booking.numberOfDays()
+        this.holidayBooked -= booking.numberOfDays()
         this.holidayAllowance += booking.numberOfDays()
-        this._bookings.pop(booking)
+        this.bookingsList.pop(booking)
         throw ("Holiday allowance exceeded please try again")   
         }    
     }
 
     // Function to return how many days of holiday have been booked
     daysBooked() {
-        return this.daysBookedOff
+        return this.holidayBooked
     }
 
     // Function to return number of days of holiday remaining
@@ -43,24 +43,24 @@ class Employee {
 
     // Function to return how many days of holiday booked have been authorised
     daysBookedAndAuthorized(){
-        this.daysAuthorized = 0
-        for (var booking of this._bookings) {
+        this.holidayApproved = 0
+        for (var booking of this.bookingsList) {
         if (booking.approved == true) {
-            this.daysAuthorized += booking.numberOfDays()
+            this.holidayApproved += booking.numberOfDays()
         }
     }
-        return this.daysAuthorized
+        return this.holidayApproved
     }
 
     // Function to return any bookings for future dates
     futureBookings() {
-        return this._bookings.filter(booking => ((booking.isAuthorized() == true) 
+        return this.bookingsList.filter(booking => ((booking.isAuthorized() == true) 
         && (booking.startDate > new Date())))
     }
 
     // Function to return any bookings from dates that have passed already
     pastBookings() {
-        return this._bookings.filter(booking => ((booking.isAuthorized() == true) 
+        return this.bookingsList.filter(booking => ((booking.isAuthorized() == true) 
         && (booking.startDate < new Date())))
     }
 
@@ -74,7 +74,7 @@ class Employee {
 
     // Function to return employee bookings
     get bookings() {
-        return this._bookings;
+        return this.bookingsList;
     }
 
     // Function to throw an error if bookings is manipulated
@@ -82,7 +82,7 @@ class Employee {
         throw ("Exception: You cannot manipulate bookings")
     }
 
-    // Function to return employee in JSON format
+    // Function to return in JSON format
     toJSON() {
         return (this)
     }
