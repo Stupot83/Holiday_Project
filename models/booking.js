@@ -4,9 +4,9 @@ class Booking {
     constructor(startDate,endDate) {
         this.startDate = new Date(startDate)
         this.endDate = new Date(endDate)
-        this.authorized = false
-        this.authorizer = null
-        this.authorizedOnDate = null
+        this.approved = false
+        this.approver = null
+        this.approvedOnDate = null
     }
 
     // Function to authorize a booking
@@ -15,29 +15,29 @@ class Booking {
         if(typeof specialDate !== "undefined") {
             date = specialDate
         }
-        this.authorized = true;
-        this.authorizer = manager;
-        this.authorizedOnDate = date;
+        this.approved = true;
+        this.approver = manager;
+        this.approvedOnDate = date;
         }
-
-    // Function to calculate number of days a booking is for
-    numberOfDays() {
-        return Math.round(Math.abs(this.endDate - this.startDate) / 8.64e7 + 1)
-    } 
 
     // Function to return if the booking has been authorised
     isAuthorized() {
-        return this.authorized;
+        return this.approved;
     } 
 
     // Function to return who the booking was authorised by
     authorizedBy() {
-        return this.authorizer;
+        return this.approver;
     }
 
     // Function to return the date the booking was authorised on
     authorizedOn() {
-        return this.authorizedOnDate;
+        return this.approvedOnDate;
+    } 
+
+    // Function to calculate number of days a booking is for
+    numberOfDays() {
+        return Math.round(Math.abs(this.endDate - this.startDate) / 8.64e7 + 1)
     } 
 
     // Function to return booking in JSON format

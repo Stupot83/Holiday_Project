@@ -45,7 +45,7 @@ class Employee {
     daysBookedAndAuthorized(){
         this.daysAuthorized = 0
         for (var booking of this._bookings) {
-        if (booking.authorized == true) {
+        if (booking.approved == true) {
             this.daysAuthorized += booking.numberOfDays()
         }
     }

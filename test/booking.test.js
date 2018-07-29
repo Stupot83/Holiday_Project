@@ -11,15 +11,15 @@ var booking = new Booking(new Date("2018-09-01"), new Date("2018-09-05"))
 
 describe("Testing Booking class" + '\n', function() {
     describe("Instantiate a new Booking", function() {
-        it("Should have the properties of a booking" + '\n', function() {
-            expect(booking).to.have.all.keys('startDate','endDate','authorized','authorizedOnDate','authorizer')
-        })
         it("instantiates new booking with correct start date", function() {
             expect(booking.startDate).to.eql(new Date("2018-09-01"));
         });
         it("instantiates new booking with correct end date", function() {
             expect(booking.endDate).to.eql(new Date("2018-09-05"));
         });
+        it("Should have the properties of a booking" + '\n', function() {
+            expect(booking).to.have.all.keys('startDate','endDate','approved','approvedOnDate','approver')
+        })
     })
 
     describe("Number of Days", function() {
